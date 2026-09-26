@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Optimize the layout of a binary using BOLT.
+# Optimise the layout of a binary using BOLT.
 
 set -euo pipefail
 
@@ -28,7 +28,7 @@ optimized_binary=build/layout_bolt
 # Run the instrumented binary to generate the profile.
 "${instrumented_binary}"
 
-# Optimize the binary using the generated profile.
+# Optimise the binary using the generated profile.
 "${BOLT}" "${bad_binary}" \
 	-data "${profile}" \
 	-o "${optimized_binary}" \

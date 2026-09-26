@@ -8,5 +8,5 @@ for binary in build/layout_good build/layout_bad build/layout_bolt; do
 	if [[ ! -x "${binary}" ]]; then
 		continue
 	fi
-	perf stat --event=cycles,instructions,iTLB-load-misses -- "${binary}"
+	perf stat --event=cycles,instructions,l1i_cache_refill -- "${binary}"
 done

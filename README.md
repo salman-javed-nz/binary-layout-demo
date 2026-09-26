@@ -40,8 +40,15 @@ Compare hardware counters for the three binaries:
 sudo ./tools/measure_perf.sh
 ```
 
-The script measures cycles, instructions, and instruction TLB misses. Note the
-much higher instruction TLB misses for `layout_bad`.
+The script measures cycles, instructions, and instruction cache misses.
+Note the much higher instruction cache misses for `layout_bad`.
+
+On hosts without PMU access (no root, or macOS), compare instruction cache
+misses with a software simulation instead:
+
+```sh
+./tools/measure_perf_sw.sh
+```
 
 Dump the symbol addresses and compare the order of the functions:
 
