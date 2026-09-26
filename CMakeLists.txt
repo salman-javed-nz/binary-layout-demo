@@ -7,3 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(layout_good src/main.cpp)
+add_executable(layout_bad src/main.cpp src/unrelated.cpp)
+
+foreach(target layout_good layout_bad)
+  target_link_options(${target} PRIVATE -Wl,--sort-section=name -Wl,-q)
+endforeach()
